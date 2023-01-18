@@ -12,7 +12,7 @@ async def init():
 @app.on_event('startup')
 def startup():
     global df_integral
-    df_integral= pd.read_csv('./Datasets/df_integral.csv', encoding='utf-8')
+    df_integral= pd.read_csv('/app/Datasets/df_integral.csv', encoding='utf-8')
 
 @app.get('/get_keyword_count')
 async def get_keyword_count (platforma:str, keyword:str):
