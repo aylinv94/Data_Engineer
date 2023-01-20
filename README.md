@@ -28,60 +28,7 @@ El proyecto consiste en procesar varios datasets de las plataformas **Amazon, Di
 + Cantidad de series y películas por rating
 <br/>
 
-**Es necesario destacar que en este proyeto se tomaron dos vertientes, la primera es la `creacion de la API en un entorno Docker` a traves de Docker-compuse y la segunda realizar un `deployment de la API sin docker`**
-
-# ¿Cómo correr la FastApi utilizando el docker compuse?
-1. Tenemos que clonar el repositorio: Encima de la lista de archivos, haga clic en <img src=".\_src\Flecha_descarga.png" height="15"> Código
-<br>
-
-
-<img src=".\_src\git_clone.png" height="400">
-<br>
-
-<br>
-
-2. Abra la Terminal, cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio y Escriba git clone y pegue la dirección URL que ha copiado antes.
-
-    ```shell
-    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-    > Cloning into `Data_Engineer`...
-    > remote: Counting objects: 10, done.
-    > remote: Compressing objects: 100% (8/8), done.
-    > remove: Total 10 (delta 1), reused 10 (delta 1)
-    > Unpacking objects: 100% (10/10), done.
-    ```
-<br>
-
-3. Posicionar en el directorio de acabamos de crear
-    ```shell
-    $ cd Data_Engineer  
-    ```
-<br>
-
-4. Ahora si podemos correr nuestro `Docker-compuse`, recuerda que para ello debes tener 'Docker previamente instalando y activo' 
-
-   ```shell
-    $ docker-compose up --build
-    ```
- <br>
-
-5. Cuando termine de correr las 6 info el programa esta lista para usarse
-
-<img src=".\_src\terminal.png" height="400">
-
-<br>
-* <strong>Nota: Recuerda redirigirte al siguiente host <a href="http://0.0.0.0:8000/docs">http://0.0.0.0:8000/docs</a> </strong>
-
-<img src=".\_src\Docker-compuse.png" height="400">
-
-<br>
-* No olvides salir del programa cuando termines, dentro de la terminal presiona `Ctrl + c `, te saldra el sieguiente mensaje.
-    ```shell
-    Stopping proyecto_etl_fast_api3_1   ... done
-
-<br/>
-
-
+**Es necesario destacar que en este proyeto se tomaron dos vertientes, la primera es realizar un `deployment de la API sin docker` y la segunda es la  `creacion de la API en un entorno Docker` a traves de Docker-compuse**
 
 # **Deployment (sin docker)**
 
@@ -138,6 +85,57 @@ Para disponibilizar los datos dentro framework ***FastAPI*** se realizo el **`De
 
 Despues de hacer todas las modificaciones al archivo main.py este es el <a href="https://6w2dj8.deta.dev/docs">Deployment</a> de la Api 
 <br/>
+
+<br/>
+
+# ¿Cómo correr la FastApi utilizando el docker compuse?
+1. Tenemos que clonar el repositorio: Encima de la lista de archivos, haga clic en <img src=".\_src\Flecha_descarga.png" height="15"> Código
+<br>
+
+
+<img src=".\_src\git_clone.png" height="400">
+<br>
+
+<br>
+
+2. Abra la Terminal, cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio y Escriba git clone y pegue la dirección URL que ha copiado antes.
+
+    ```shell
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    > Cloning into `Data_Engineer`...
+    > remote: Counting objects: 10, done.
+    > remote: Compressing objects: 100% (8/8), done.
+    > remove: Total 10 (delta 1), reused 10 (delta 1)
+    > Unpacking objects: 100% (10/10), done.
+    ```
+<br>
+
+3. Posicionar en el directorio de acabamos de crear
+    ```shell
+    $ cd Data_Engineer  
+    ```
+<br>
+
+4. Ahora si podemos correr nuestro `Docker-compuse`, recuerda que para ello debes tener 'Docker previamente instalando y activo' 
+
+   ```shell
+    $ docker-compose up --build
+    ```
+ <br>
+
+5. Cuando termine de correr las 6 info el programa esta lista para usarse
+
+<img src=".\_src\terminal.png" height="400">
+
+<br>
+* <strong>Nota: Recuerda redirigirte al siguiente host <a href="http://0.0.0.0:8000/docs">http://0.0.0.0:8000/docs</a> </strong>
+
+<img src=".\_src\Docker-compuse.png" height="400">
+
+<br>
+* No olvides salir del programa cuando termines, dentro de la terminal presiona `Ctrl + c `, te saldra el sieguiente mensaje.
+    ```shell
+    Stopping proyecto_etl_fast_api3_1   ... done
 
 <br/>
 
