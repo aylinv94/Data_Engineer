@@ -11,7 +11,7 @@
 
 ## **Descripción del problema**
 
-El proyecto consiste en procesar varios datasets de las plataformas **Amazon, Diney, hulu y Netflix**  y unificar los datasets para  elaborar unas serie de transformaciones especificas, en la cual se disponibilizara los datos a traves de la plataforma **FastAPI**, un web framework moderno y de alto rendimiento para construir APIs con Python.
+El proyecto consiste en procesar varios datasets de las plataformas **Amazon, Diney, hulu y Netflix**  y unificar los datasets para  elaborar unas <a href="https://github.com/aylinv94/Data_Engineer/blob/master/Consignas.md">consignas</a> </strong> mediante una serie de transformaciones especificas,  en la cual se disponibilizara los datos a traves de la plataforma **FastAPI**, un web framework moderno y de alto rendimiento para construir APIs con Python.
 <p align=center>
 <img src = 'https://i.ibb.co/9t3dD7D/blog-zenvia-imagens-3.png' height=250><p> 
 
@@ -28,7 +28,7 @@ El proyecto consiste en procesar varios datasets de las plataformas **Amazon, Di
 + Cantidad de series y películas por rating
 <br/>
 
-Es necesario destacar que en este proyeto se tomaron dos vertientes, la primera es la creacion de la API en un entorno Docker a traves de Docker-compuse y la segunda realizar un deployment de la API sin docker.
+**Es necesario destacar que en este proyeto se tomaron dos vertientes, la primera es la `creacion de la API en un entorno Docker` a traves de Docker-compuse y la segunda realizar un `deployment de la API sin docker`**
 
 # ¿Cómo correr la FastApi utilizando el docker compuse?
 1. Tenemos que clonar el repositorio: Encima de la lista de archivos, haga clic en <img src=".\_src\Flecha_descarga.png" height="15"> Código
@@ -141,7 +141,7 @@ Despues de hacer todas las modificaciones al archivo main.py este es el <a href=
 
 <br/>
 
-**`Video`**: El Tech Lead que le delegó esta tarea quiere darle un feedback sobre el trabajo realizado. Para esto, le pide que sintetice en un video de ***5 minutos*** su trabajo resaltando cómo ayuda el mismo a los analistas de datos.
+### Por ultimo, se realizo un **`Video Demostrativo`** de ***5 minutos*** explicando el trabajo realizado durante este proyecto.
 
 
 
