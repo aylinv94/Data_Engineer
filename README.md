@@ -1,51 +1,21 @@
-<p align=center><img src=https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png><p>
-
-# <h1 align=center> **PROYECTO INDIVIDUAL Nº1** </h1>
+# <h1 align=center> **PROYECTO INDIVIDUAL** </h1>
 
 # <h1 align=center>**`Data Engineering`**</h1>
 
 <p align="center">
-<img src="https://files.realpython.com/media/What-is-Data-Engineering_Watermarked.607e761a3c0e.jpg"  height=300>
+<img src=".\_src\etl.gif"  height=350>
 </p>
-
-¡Bienvenidos al primer proyecto individual de la etapa de labs! En esta ocasión, deberán hacer un trabajo situándose en el rol de un ***Data Engineer***.  
+  
 
 <hr>  
 
-## **Descripción del problema (Contexto y rol a desarrollar)**
+## **Descripción del problema**
 
-## Contexto
-
-`Application Programming Interface`  es una interfaz que permite que dos aplicaciones se comuniquen entre sí, independientemente de la infraestructura subyacente. Son herramientas muy versátiles que permiten por ejemplo, crear pipelines facilitando mover y brindar acceso simple a los datos que se quieran disponibilizar a través de los diferentes endpoints, o puntos de salida de la API.
-
-Hoy en día contamos con **FastAPI**, un web framework moderno y de alto rendimiento para construir APIs con Python.
+El proyecto consiste en procesar varios datasets de las plataformas **Amazon, Diney, hulu y Netflix**  y unificar los datasets para  elaborar unas serie de transformaciones especificas, en la cual se disponibilizara los datos a traves de la plataforma **FastAPI**, un web framework moderno y de alto rendimiento para construir APIs con Python.
 <p align=center>
-<img src = 'https://i.ibb.co/9t3dD7D/blog-zenvia-imagens-3.png' height=250><p>
+<img src = 'https://i.ibb.co/9t3dD7D/blog-zenvia-imagens-3.png' height=250><p> 
 
-## Rol a desarrollar
-
-Como parte del equipo de data de una empresa, el área de análisis de datos le solicita al área de Data Engineering (usted) ciertos requerimientos para el óptimo desarrollo de sus actividades. Usted deberá elaborar las *transformaciones* requeridas y disponibilizar los datos mediante la *elaboración y ejecución de una API*.
-
-
-
-## **Propuesta de trabajo (requerimientos de aprobación)**
-
-**`Transformaciones`**:  El analista de datos requiere estas, ***y solo estas***, transformaciones para sus datos:
-
-
-+ Generar campo **`id`**: Cada id se compondrá de la primera letra del nombre de la plataforma, seguido del show_id ya presente en los datasets (ejemplo para títulos de Amazon = **`as123`**)
-
-+ Los valores nulos del campo rating deberán reemplazarse por el string “**`G`**” (corresponde al maturity rating: “general for all audiences”
-
-+ De haber fechas, deberán tener el formato **`AAAA-mm-dd`**
-
-+ Los campos de texto deberán estar en **minúsculas**, sin excepciones
-
-+ El campo ***duration*** debe convertirse en dos campos: **`duration_int`** y **`duration_type`**. El primero será un integer y el segundo un string indicando la unidad de medición de duración: min (minutos) o season (temporadas)
-
-<br/>
-
-**`Desarrollo API`**:  Para disponibilizar los datos la empresa usa el framework ***FastAPI***. El analista de datos requiere consultar:
+<FONT SIZE=5>Las consultas a realizar son:</font>
 
 + Cantidad de veces que aparece una keyword en el título de peliculas/series, por plataforma
 
@@ -58,62 +28,121 @@ Como parte del equipo de data de una empresa, el área de análisis de datos le 
 + Cantidad de series y películas por rating
 <br/>
 
+Es necesario destacar que en este proyeto se tomaron dos vertientes, la primera es la creacion de la API en un entorno Docker a traves de Docker-compuse y la segunda realizar un deployment de la API sin docker.
 
-**`Deployment`**: La empresa suele usar [Deta](https://www.deta.sh/?ref=fastapi) (no necesita dockerizacion) para realizar el deploy de sus aplicaciones. Sin embargo, también puede usar [Railway](https://railway.app/) y [Render](https://render.com/docs/free#free-web-services) (necesitan dockerizacion).
+# ¿Cómo correr la FastApi utilizando el docker compuse?
+1. Tenemos que clonar el repositorio: Encima de la lista de archivos, haga clic en <img src=".\_src\Flecha_descarga.png" height="15"> Código
+<br>
+
+
+<img src=".\_src\git_clone.png" height="400">
+<br>
+
+<br>
+
+2. Abra la Terminal, cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio y Escriba git clone y pegue la dirección URL que ha copiado antes.
+
+    ```shell
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    > Cloning into `Data_Engineer`...
+    > remote: Counting objects: 10, done.
+    > remote: Compressing objects: 100% (8/8), done.
+    > remove: Total 10 (delta 1), reused 10 (delta 1)
+    > Unpacking objects: 100% (10/10), done.
+    ```
+<br>
+
+3. Posicionar en el directorio de acabamos de crear
+    ```shell
+    $ cd Data_Engineer  
+    ```
+<br>
+
+4. Ahora si podemos correr nuestro `Docker-compuse`, recuerda que para ello debes tener 'Docker previamente instalando y activo' 
+
+   ```shell
+    $ docker-compose up --build
+    ```
+ <br>
+
+5. Cuando termine de correr las 6 info el programa esta lista para usarse
+
+<img src=".\_src\terminal.png" height="400">
+
+<br>
+* <strong>Nota: Recuerda redirigirte al siguiente host <a href="http://0.0.0.0:8000/docs">http://0.0.0.0:8000/docs</a> </strong>
+
+<img src=".\_src\Docker-compuse.png" height="400">
+
+<br>
+* No olvides salir del programa cuando termines, dentro de la terminal presiona `Ctrl + c `, te saldra el sieguiente mensaje.
+    ```shell
+    Stopping proyecto_etl_fast_api3_1   ... done
+
+<br/>
+
+
+
+# **Deployment (sin docker)**
+
+Para disponibilizar los datos dentro framework ***FastAPI*** se realizo el **`Deployment`** con la empresa [Deta](https://www.deta.sh/?ref=fastapi) (no necesita dockerizacion) en lo cual una vez creado un entorno virtual de python se siguieron las siguientes pasos en la terminal:
+    
+1. Instalar Deta CLI
+    ```shell
+    curl -fsSL https://get.deta.dev/cli.sh | sh
+    ```
+
+2. Salir de la terminal y volver a entrar
+    
+3. Logearse en deta desde un navegador chrome o firefox
+    ```shell
+    deta login
+    ```
+4. Crear  un directorio llamado FirstMicro, y alli mismo se genera el endpoint junto con el archivo main.py
+
+    ```shell
+    deta new --python FirstMicro
+    ```
+
+5. Intalar las dependicias FastApi y pandas
+    ```shell
+    pip install fastapi
+    pip install pandas
+    ```
+
+6. Ingresar al directorio FirstMicro
+    ```shell
+    cd FirstMicro
+    ```
+7. Crear el archivo requirements.txt
+    ```shell
+    pip freeze > requirements.txt
+    ```
+8. Modificar el archivo main.py para verificar si funciona
+    ```shell
+    from fastapi import FastAPI
+    import pandas as pd
+
+    app = FastAPI(title= 'ETL con docker y FastApi',
+            description= 'Extract, Transform, Load of the platforms Amazon, Disney, Hulu y Netflix', 
+            version= '1.0.1')
+
+    @app.get('/')
+    async def init():
+    return {'Hello:World'}
+    ```
+9. Hacer el deploy
+    ```shell
+    deta deploy
+    ```
+
+Despues de hacer todas las modificaciones al archivo main.py este es el <a href="https://6w2dj8.deta.dev/docs">Deployment</a> de la Api 
 <br/>
 
 <br/>
 
 **`Video`**: El Tech Lead que le delegó esta tarea quiere darle un feedback sobre el trabajo realizado. Para esto, le pide que sintetice en un video de ***5 minutos*** su trabajo resaltando cómo ayuda el mismo a los analistas de datos.
 
-<sub> **Spoiler: Para lograr esto DEBE mostrarle al TL las consultas requeridas en funcionamiento desde la API**. <sub/>
 
-<br/>
 
-## **Criterios de evaluación**
 
-**`Código`**: Prolijidad de código, uso de clases y/o funciones, en caso de ser necesario, código comentado. 
-
-**`Repositorio`**: Nombres de archivo adecuados, uso de carpetas para ordenar los archivos, README.md presentando el proyecto y el trabajo realizado
-
-**`Cumplimiento`** de los requerimientos de aprobación indicados en el apartado `Propuesta de trabajo`
-
-NOTA: Recuerde entregar el link de acceso al video. Puede alojarse en YouTube, Drive o cualquier plataforma de almacenamiento. **Verificar que sea de acceso público**.
-
-<br/>
-
-## **Fuente de datos**
-
-+ Podrán encontrar los archivos con datos en la carpeta Datasets, en este mismo repositorio.<sup>*</sup>
-<br/>
-
-## **Material de apoyo**
-
-Imagen Docker con Uvicorn/Guinicorn para aplicaciones web de alta performance:
-
-+ https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/ 
-
-+ https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker
-
-FAST API Documentation:
-
-+ https://fastapi.tiangolo.com/tutorial/
-
-"Prolijidad" del codigo:
-
-+ https://pandas.pydata.org/docs/development/contributing_docstring.html
-
-<br/>
-
-## **Deadlines importantes**
-
-+ Apertura de formularios de entrega de proyectos: **Miercoles 18, 15:00hs gmt -3**
-
-+ Cierre de formularios de entrega de proyectos: **Viernes 20, 12:00hs gmt-3**
-  
-+ Demo por parte del estudiante: **Viernes 20, 16:00hs gmt-3** 
-
-(Se escogera entre l@s estudiantes aquel que represente de **forma global** todos los criterios de evaluacion esperados, para que sirva de inspiracion a sus compañer@s)
-
-## `Disclaimer`
-De parte del equipo de Henry se aclara y remarca que el fin de los proyectos propuestos es exclusivamente pedagógico, con el objetivo de realizar simular un entorno laboral, en el cual se trabajan diversas temáticas ajustadas a la realidad. No reflejan necesariamente la filosofía y valores de la organización. Además, Henry no alienta ni tampoco recomienda a los alumnos y/o cualquier persona leyendo los repositorios (y entregas de proyectos) que tomen acciones con base a los datos que pudieran o no haber recabado. Toda la información expuesta y resultados obtenidos en los proyectos nunca deben ser tomados en cuenta para la toma real de decisiones (especialmente en la temática de finanzas, salud, política, etc.).
